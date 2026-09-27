@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-charmshots",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "n8n community node for Charmshots: OAuth account connection and 4 workflow operations.",
   "license": "MIT",
   "homepage": "https://charmshots.com",
@@ -14,7 +14,7 @@
   "author": {
     "name": "Charmshots",
     "url": "https://charmshots.com",
-    "email": "codex@users.noreply.github.com"
+    "email": "saeedmshdi@gmail.com"
   },
   "repository": {
     "type": "git",
