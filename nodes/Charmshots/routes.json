@@ -1,0 +1,18 @@
+{
+  "get_profile": {
+    "method": "GET",
+    "path": "/v1/account"
+  },
+  "list_photoshoots": {
+    "method": "GET",
+    "path": "/v1/photoshoots"
+  },
+  "get_photoshoot": {
+    "method": "GET",
+    "path": "/v1/photoshoots/:photoshootId"
+  },
+  "list_photos": {
+    "method": "GET",
+    "path": "/v1/photoshoots/:photoshootId/photos"
+  }
+}
