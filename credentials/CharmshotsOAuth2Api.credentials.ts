@@ -18,13 +18,13 @@ export class CharmshotsOAuth2Api implements ICredentialType {
       displayName: "Server URL",
       name: "serverUrl",
       type: "hidden",
-      default: "https://mcp.charmshots.com/v1",
+      default: "https://charmshots.com/v1",
     },
     {
       displayName: "Resource URL",
       name: "resourceUrl",
       type: "hidden",
-      default: "https://mcp.charmshots.com/v1",
+      default: "https://charmshots.com/v1",
     },
   ];
 }

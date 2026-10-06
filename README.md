@@ -8,11 +8,15 @@ Install `n8n-nodes-charmshots` from **Settings → Community nodes** in your n8n
 
 ## Authentication
 
-Create the **Charmshots OAuth2 API** credential, select **Connect my account**, sign in to Charmshots, and approve the listed permissions. Credentials use dynamic registration, OAuth authorization code flow, PKCE, expiring access tokens, and refresh tokens. The API resource is `https://mcp.charmshots.com/v1`; REST tokens are separate from MCP tokens.
+Create the **Charmshots OAuth2 API** credential, select **Connect my account**, sign in to Charmshots, and approve the listed permissions. Credentials use dynamic registration, OAuth authorization code flow, PKCE, expiring access tokens, and refresh tokens. The API resource is `https://charmshots.com/v1`; REST tokens are separate from MCP tokens.
 
-**Upgrading from 1.x:** reconnect the credential before running workflows. Version 2 replaces the old MCP transport with the native REST API. Inputs retain their names, while outputs are the API's resource JSON. Review existing workflows before enabling writes.
+**Upgrading from 1.x or 2.x:** create a new Charmshots OAuth2 API credential and reconnect it before running workflows. Version 3 uses the product REST resource at `https://charmshots.com/v1` with its own OAuth audience. Tokens issued for the earlier resource cannot be reused. Inputs retain their names; review the resource JSON and write confirmations before enabling workflows.
 
-## Operations
+## Resources and operations
+
+Choose a **Resource**, then an **Operation**. Only operations and input fields for that resource are shown. Resources: Account, Photoshoot.
+
+### Requests
 
 | Operation | HTTP request |
 | --- | --- |
@@ -31,6 +35,10 @@ Requests use the fixed product API origin, encode resource identifiers, and do n
 
 Run `npm ci`, `npm run lint`, and `npm test` to build and validate the package with the n8n node CLI. Source and release automation: [charmshots/n8n-nodes-charmshots](https://github.com/charmshots/n8n-nodes-charmshots). Report node issues in [GitHub Issues](https://github.com/charmshots/n8n-nodes-charmshots/issues).
 
-Product: [Charmshots](https://charmshots.com) · [Privacy](https://charmshots.com/privacy/) · [Agent skill](https://github.com/charmshots/agent-skill) · [MCP integration](https://github.com/charmshots/mcp-server)
+Product: [Charmshots](https://charmshots.com) · [Privacy](https://charmshots.com/privacy/) · [Agent skill](https://github.com/charmshots/agent-skill)
 
 MIT license.
+
+## REST API contract
+
+The request origin and OAuth resource are the product API shown above. GET reads a resource, POST creates or requests an explicitly confirmed action, PATCH updates, and DELETE removes the selected owned resource. The node does not forward requests to a protocol server. Authentication, permissions and ownership are enforced before the API executes an operation.
