@@ -18,12 +18,12 @@ Choose a **Resource**, then an **Operation**. Only operations and input fields f
 
 ### Requests
 
-| Operation | HTTP request |
-| --- | --- |
-| Read a photoshoot | `GET /v1/photoshoots/:photoshootId` |
-| Read your Charmshots profile | `GET /v1/account` |
+| Operation                     | HTTP request                               |
+| ----------------------------- | ------------------------------------------ |
+| Read a photoshoot             | `GET /v1/photoshoots/:photoshootId`        |
+| Read your Charmshots profile  | `GET /v1/account`                          |
 | List photos from a photoshoot | `GET /v1/photoshoots/:photoshootId/photos` |
-| List your photoshoots | `GET /v1/photoshoots` |
+| List your photoshoots         | `GET /v1/photoshoots`                      |
 
 ## Workflow behavior
 
@@ -42,3 +42,9 @@ MIT license.
 ## REST API contract
 
 The request origin and OAuth resource are the product API shown above. GET reads a resource, POST creates or requests an explicitly confirmed action, PATCH updates, and DELETE removes the selected owned resource. The node does not forward requests to a protocol server. Authentication, permissions and ownership are enforced before the API executes an operation.
+
+## Release checks (3.1.0)
+
+Resource and Operation definitions are explicit in the TypeScript node source. This minor update preserves API endpoints, credential types and operation identifiers. Every publication must pass Prettier, the official n8n node CLI linter with zero warnings, the runtime tests, and the n8n community package scanner against both TypeScript source and compiled JavaScript. GitHub Actions runs these checks before publishing with npm provenance.
+
+Run `npm ci --ignore-scripts`, `npm test`, and `npm run review` before proposing a release.

@@ -1,102 +1,98 @@
 [
-  {
-    "name": "get_photoshoot",
-    "title": "Read a photoshoot",
-    "description": "Read an existing owned photoshoot. Use list_photos to browse its finished images.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {
-        "photoshootId": {
-          "type": "string",
-          "format": "uuid"
-        }
-      },
-      "required": [
-        "photoshootId"
-      ],
-      "additionalProperties": false,
-      "$schema": "http://json-schema.org/draft-07/schema#"
-    },
-    "annotations": {
-      "title": "Read a photoshoot",
-      "readOnlyHint": true,
-      "destructiveHint": false,
-      "idempotentHint": true,
-      "openWorldHint": false
-    }
-  },
-  {
-    "name": "get_profile",
-    "title": "Read your Charmshots profile",
-    "description": "Read the signed-in customer's own Charmshots account profile. Does not search for or identify other people.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": false
-    },
-    "annotations": {
-      "title": "Read your Charmshots profile",
-      "readOnlyHint": true,
-      "destructiveHint": false,
-      "idempotentHint": true,
-      "openWorldHint": false
-    }
-  },
-  {
-    "name": "list_photos",
-    "title": "List photos from a photoshoot",
-    "description": "List existing photo metadata and owner-authenticated download links. Links require product sign-in; they are not public share links. Does not generate or analyse images.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {
-        "photoshootId": {
-          "type": "string",
-          "format": "uuid"
-        },
-        "offset": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 10000,
-          "default": 0
-        }
-      },
-      "required": [
-        "photoshootId"
-      ],
-      "additionalProperties": false,
-      "$schema": "http://json-schema.org/draft-07/schema#"
-    },
-    "annotations": {
-      "title": "List photos from a photoshoot",
-      "readOnlyHint": true,
-      "destructiveHint": false,
-      "idempotentHint": true,
-      "openWorldHint": false
-    }
-  },
-  {
-    "name": "list_photoshoots",
-    "title": "List your photoshoots",
-    "description": "Browse your existing photoshoots, newest first. Empty results mean no shoots have been created in this account.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {
-        "offset": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 10000,
-          "default": 0
-        }
-      },
-      "additionalProperties": false,
-      "$schema": "http://json-schema.org/draft-07/schema#"
-    },
-    "annotations": {
-      "title": "List your photoshoots",
-      "readOnlyHint": true,
-      "destructiveHint": false,
-      "idempotentHint": true,
-      "openWorldHint": false
-    }
-  }
+	{
+		"name": "get_photoshoot",
+		"title": "Read a photoshoot",
+		"description": "Read an existing owned photoshoot. Use list_photos to browse its finished images.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {
+				"photoshootId": {
+					"type": "string",
+					"format": "uuid"
+				}
+			},
+			"required": ["photoshootId"],
+			"additionalProperties": false,
+			"$schema": "http://json-schema.org/draft-07/schema#"
+		},
+		"annotations": {
+			"title": "Read a photoshoot",
+			"readOnlyHint": true,
+			"destructiveHint": false,
+			"idempotentHint": true,
+			"openWorldHint": false
+		}
+	},
+	{
+		"name": "get_profile",
+		"title": "Read your Charmshots profile",
+		"description": "Read the signed-in customer's own Charmshots account profile. Does not search for or identify other people.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {},
+			"additionalProperties": false
+		},
+		"annotations": {
+			"title": "Read your Charmshots profile",
+			"readOnlyHint": true,
+			"destructiveHint": false,
+			"idempotentHint": true,
+			"openWorldHint": false
+		}
+	},
+	{
+		"name": "list_photos",
+		"title": "List photos from a photoshoot",
+		"description": "List existing photo metadata and owner-authenticated download links. Links require product sign-in; they are not public share links. Does not generate or analyse images.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {
+				"photoshootId": {
+					"type": "string",
+					"format": "uuid"
+				},
+				"offset": {
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 10000,
+					"default": 0
+				}
+			},
+			"required": ["photoshootId"],
+			"additionalProperties": false,
+			"$schema": "http://json-schema.org/draft-07/schema#"
+		},
+		"annotations": {
+			"title": "List photos from a photoshoot",
+			"readOnlyHint": true,
+			"destructiveHint": false,
+			"idempotentHint": true,
+			"openWorldHint": false
+		}
+	},
+	{
+		"name": "list_photoshoots",
+		"title": "List your photoshoots",
+		"description": "Browse your existing photoshoots, newest first. Empty results mean no shoots have been created in this account.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {
+				"offset": {
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 10000,
+					"default": 0
+				}
+			},
+			"additionalProperties": false,
+			"$schema": "http://json-schema.org/draft-07/schema#"
+		},
+		"annotations": {
+			"title": "List your photoshoots",
+			"readOnlyHint": true,
+			"destructiveHint": false,
+			"idempotentHint": true,
+			"openWorldHint": false
+		}
+	}
 ]

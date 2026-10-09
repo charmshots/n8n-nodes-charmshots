@@ -1,20 +1,18 @@
 {
-  "node": "n8n-nodes-charmshots.charmshots",
-  "nodeVersion": "1.0",
-  "codexVersion": "1.0",
-  "categories": [
-    "Productivity"
-  ],
-  "resources": {
-    "credentialDocumentation": [
-      {
-        "url": "https://github.com/charmshots/n8n-nodes-charmshots#authentication"
-      }
-    ],
-    "primaryDocumentation": [
-      {
-        "url": "https://github.com/charmshots/n8n-nodes-charmshots#readme"
-      }
-    ]
-  }
+	"node": "n8n-nodes-charmshots.charmshots",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Productivity"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/charmshots/n8n-nodes-charmshots#authentication"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/charmshots/n8n-nodes-charmshots#readme"
+			}
+		]
+	}
 }
