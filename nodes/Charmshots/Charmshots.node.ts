@@ -13,16 +13,26 @@ export class Charmshots implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Charmshots',
 		name: 'charmshots',
-		icon: { light: 'file:charmshots.svg', dark: 'file:charmshots.svg' },
+		icon: {
+			light: 'file:charmshots.svg',
+			dark: 'file:charmshots.svg',
+		},
 		group: ['transform'],
 		version: 1,
 		subtitle: '={{$parameter["resource"] + ": " + $parameter["operation"]}}',
 		description: 'Automate your Charmshots account',
-		defaults: { name: 'Charmshots' },
+		defaults: {
+			name: 'Charmshots',
+		},
 		inputs: [NodeConnectionTypes.Main],
 		outputs: [NodeConnectionTypes.Main],
 		usableAsTool: true,
-		credentials: [{ name: 'charmshotsOAuth2Api', required: true }],
+		credentials: [
+			{
+				name: 'charmshotsOAuth2Api',
+				required: true,
+			},
+		],
 		properties: [
 			{
 				displayName: 'Resource',
@@ -72,7 +82,7 @@ export class Charmshots implements INodeType {
 						name: 'Get Photoshoot',
 						value: 'get_photoshoot',
 						description:
-							'Read an existing owned photoshoot. Use list_photos to browse its finished images.',
+							'Read an existing owned photoshoot. Use List Photos to browse its finished images.',
 						action: 'Get photoshoot in charmshots',
 					},
 					{
@@ -126,61 +136,70 @@ export class Charmshots implements INodeType {
 				},
 			},
 			{
-				displayName: 'Additional Fields',
-				name: 'options_list_photos',
-				type: 'collection',
-				placeholder: 'Add Field',
-				default: {},
+				displayName: 'Return All',
+				name: 'returnAll',
+				type: 'boolean',
+				default: false,
+				description: 'Whether to return all results or only up to a given limit',
 				displayOptions: {
 					show: {
 						operation: ['list_photos'],
 						resource: ['photoshoots'],
 					},
 				},
-				options: [
-					{
-						displayName: 'Offset',
-						name: 'offset',
-						type: 'number',
-						default: 0,
-						description: 'The offset for this operation',
-						typeOptions: {
-							minValue: 0,
-							maxValue: 10000,
-							numberPrecision: 0,
-						},
-					},
-				],
 			},
 			{
-				displayName: 'Additional Fields',
-				name: 'options_list_photoshoots',
-				type: 'collection',
-				placeholder: 'Add Field',
-				default: {},
+				displayName: 'Limit',
+				name: 'limit',
+				type: 'number',
+				default: 50,
+				typeOptions: {
+					minValue: 1,
+					numberPrecision: 0,
+				},
+				description: 'Max number of results to return',
+				displayOptions: {
+					show: {
+						operation: ['list_photos'],
+						resource: ['photoshoots'],
+						returnAll: [false],
+					},
+				},
+			},
+			{
+				displayName: 'Return All',
+				name: 'returnAll',
+				type: 'boolean',
+				default: false,
+				description: 'Whether to return all results or only up to a given limit',
 				displayOptions: {
 					show: {
 						operation: ['list_photoshoots'],
 						resource: ['photoshoots'],
 					},
 				},
-				options: [
-					{
-						displayName: 'Offset',
-						name: 'offset',
-						type: 'number',
-						default: 0,
-						description: 'The offset for this operation',
-						typeOptions: {
-							minValue: 0,
-							maxValue: 10000,
-							numberPrecision: 0,
-						},
+			},
+			{
+				displayName: 'Limit',
+				name: 'limit',
+				type: 'number',
+				default: 50,
+				typeOptions: {
+					minValue: 1,
+					numberPrecision: 0,
+				},
+				description: 'Max number of results to return',
+				displayOptions: {
+					show: {
+						operation: ['list_photoshoots'],
+						resource: ['photoshoots'],
+						returnAll: [false],
 					},
-				],
+				},
 			},
 		],
 	};
+
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		return executeOperations(
 			this,

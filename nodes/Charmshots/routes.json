@@ -5,7 +5,11 @@
 	},
 	"list_photoshoots": {
 		"method": "GET",
-		"path": "/v1/photoshoots"
+		"path": "/v1/photoshoots",
+		"pagination": {
+			"items": ["photoshoots"],
+			"kind": "offset"
+		}
 	},
 	"get_photoshoot": {
 		"method": "GET",
@@ -13,6 +17,10 @@
 	},
 	"list_photos": {
 		"method": "GET",
-		"path": "/v1/photoshoots/:photoshootId/photos"
+		"path": "/v1/photoshoots/:photoshootId/photos",
+		"pagination": {
+			"items": ["photos"],
+			"kind": "offset"
+		}
 	}
 }
